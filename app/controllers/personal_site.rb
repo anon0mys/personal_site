@@ -6,7 +6,13 @@ class PersonalSite
     when '/' then index
     when '/about' then about
     when '/blog' then blog
-    when '/main.css' then css
+    else check_assets(env['PATH_INFO'])
+    end
+  end
+
+  def self.check_assets(path)
+    if File.exist?("./public/#{path}")
+      render_static(path)
     else
       error
     end
@@ -22,10 +28,6 @@ class PersonalSite
     [200,
      { 'Content-Type' => 'text/html' },
      [File.read("./public/#{asset}")]]
-  end
-
-  def self.css
-    render_static('main.css')
   end
 
   def self.blog

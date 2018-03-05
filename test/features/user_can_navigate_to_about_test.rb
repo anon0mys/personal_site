@@ -1,7 +1,7 @@
 require './test/test_helper'
 
 class LinkTest < CapybaraTestCase
-  def test_user_can_see_the_homepage
+  def test_user_can_navigate_to_about_page
     visit '/'
     click_on 'About'
 

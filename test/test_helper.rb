@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'capybara/minitest'
+require 'pry'
 require './app/controllers/personal_site'
 
 Capybara.app = PersonalSite
